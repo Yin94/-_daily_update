@@ -1,0 +1,28 @@
+
+noscript tag used for situation when browser doesn't support javascript.
+
+What does a doctype do?
+    Defines the type of this document. Let the browser knows how to read and process this doc.
+Describe the difference between a cookie, sessionStorage and localStorage?
+    Cookie: both client and server.
+    sessionStorage: Like localStorage, but clears when the tab closed.
+    localStorage: store permanently.
+Describe the difference between <script>, <script async> and <script defer>?
+    All of them load the scripts we need for this page, onece see script tag browser will be blocked and dowload and  load the script entirely.
+    while defer will just start download backend and load right before all the DOms are ready,
+    async will download backend and load whenever it finish downloading.
+Why is it generally a good idea to position CSS <link>s between <head></head> and JS <script>s just before </body>? Do you know any exceptions?
+    Css is loads faster comparing to Js and elements will be rendered after the style is ready(in most situation). JS is slow to load and some of its scripts may block the process, and may change the DOM. So its better for us to load it after the html is loaded.
+What is progressive rendering?
+    load what you need(scroll page)
+Https:
+    http+SSL/TLS协议, 在传输数据时先用SSL(secure socket layer)/TLS(transport layer security)加密然后再用http进行传输。
+    非对称加密缺点，效率低。 所以https使用两种加密， 私钥用非对称获得， 然后数据用获得的私钥来进行对称加密。
+        图解：https://upload-images.jianshu.io/upload_images/627325-dc83fef6ac2e6c88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/648/format/webp
+
+xss:
+    Cross site script, 跨网站攻击。 将恶意代码段嵌入可靠网站内，从而祸害其他用户。 e.g. 评论区嵌入获取cookie的恶意代码。
+        防御： 检查用户输入， 把他参数化。 处理掉html的tag，因为只要没有tag， html方面也就是安全的。
+
+Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute？
+    responsive image.

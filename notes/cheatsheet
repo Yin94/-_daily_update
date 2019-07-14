@@ -1,0 +1,39 @@
+#################
+Javascript  single thread 如何实现多线程。—>  他是单线程的(单个线程管理eventloop， 可以开)启worker thread在background,  worker 有eventListener 并且调用self.close()强行跳出worker线程,self指该线程).
+Javascript 继承的实现。 1.Object.create()  2.Function.prototype然后new 实现。 3.直接改__proto__不建议。 4.class es6, strict mode.(必须只有一个constructor).
+
+ 用_proto_去访问他的父亲object。 用child=Object.create(father) 来继承, 或者child.__proto__=father 注意 双下划线。
+javascript内部实现原理。(single threaded, use callback to mock multi-thread)。
+Es6 use promises to replace callbacks(solve callback hell), or async await to resolve it.（they are just api level, underhood just was callback).
+flatten 一个数组。
+
+SPA优劣势：
+ ad: 1. fast&responsive. Cause partial update.(most files loaded once a app time).
+2. Caching abilities.
+3.more secure to cross-site scripting attack.
+4. Ez to debug. Debug tool like react-dev tools.
+
+Disad: 1. SEO optimization, no unique url for each page,  hard for search engine to find.
+	2.
+
+mySql: innerDb, ~ 等引擎。    索引的意义
+
+Sql 和NonSql的优缺点
+
+闭包的概念。
+
+Js: single threaded, one command at a time. Only one call stack.
+Then how to handle asynchronous code? —> Concurrency& event loop.
+
+How: use web Apis(shit like worker, Settimeout ), call back queues and event loop.  It push async code to  run and callback fun to cb queue, and once an event loop see an empty stack, it push first cb in queue to call stack and run.
+So javascript basically run all sync code and then run shits in CBQ.(has to wait until stack is cleared).
+Settimeout not guaranteed  its a minimum time to be run, it has a wait time in call back queue.
+
+JavaScript 本身不支持多线程， 除非在运行环境或web api的帮助下。
+
+Node-> v8 wrapped in a C++ program(event queue is managed in C++ program). Since single threaded, should not be used in CPU intensive programs,  but in I/O, network programs.
+
+XXS attacks  
+
+Promise 原理；
+TypeScript 优缺点；

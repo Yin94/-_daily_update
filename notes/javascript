@@ -1,0 +1,71 @@
+ variable naming rulse:
+        only begin with letters, _ or $;
+        only contains letters, _, $ or numbers;
+        case sensative;
+    解释性语言和编译型语言:
+        前者运行时自动翻译(java,javascript)， 后者县编译再跑(c,c++)。 
+        
+        优缺点：  
+            前者跨平台型高，只有装有解释器。 后者效率高，因为编译一次可以重复使用。
+        javascript 是非独立语言(需要依靠外部环境，window,node系统直接看不懂。)
+    
+How to deep copy a object:
+    use iterations (typeof arg ==="object"||"function" ).  json stringfy and then parse back.
+Date 对象：
+    Date 里有一个Number对象里存的与01/01/1970的时间差。
+    new Date()// nowc
+    new Date('month date, year hh/mm/ss')
+垃圾回收机制:
+    1.全局变量不会被回收。
+    2.局部变量会被回收，也就是函数一旦运行完以后，函数内部的东西都会被销毁。
+    3.只要被另外一个作用域所引用就不会被回收
+Deference between function and ()=>{}:
+    arrowF does not have keyword this. regular has this(retains to its enclosing lexical context).
+        e.g:   function a (){ return ()=>this}    this refer to this of "a"
+    arrow doesn't have "arguments" property.
+    arraow function cant act like constructor, can't use "new" before it.
+
+Event mechanism:
+    An event is something happens to html element(DOM):
+        event delegation:
+            all children will listen to parents eventlistenner. But the target will be the element actually emmit that event, if we click p in a body, it will be p instead of body.
+        event bubbling(event propagation):
+            once a event triggered, it will trigger all same eventlistenner on all the element's ancestors. Basically 
+how to iterate through object:
+    for (var key in obj){} or array = Object.keys()
+
+sort, splice,pop等会改变原数组。  concat, join, split 等不会。
+"This" in JS:
+    this in function is the caller of this functions at runtime, arrow function is the this of the  lexical enclosing scope.
+    this is determined by how a function is called(who is the caller), es6 arrwo function don't have this, it retains this to its enclosing lexical context(declaration phase).
+        for example: function a(){ var b= ()=>this; return b;} ;  a.call('123)()===>'123'
+    To manually bind, use Function.call(), Function.apply(). While ES5 introduced Function.prototype.bind(), it copy text of a function and return a new function with its this perm bind to the given arg. 
+        You can still pass bind,call,apply to ()=>{}, but it will be ignored still "this" refer to lexical enclose.
+        注意bind method chain 起来永远只有第一个生效。
+    必看关于 closure的题目https://www.nowcoder.com/test/question/done?tid=25004834&qid=15435#summary。 注意如果function是 arrow 则是输出"bar"
+Difference between function expression (var a = function(){})and function  declaration(function b(){}):
+    declaration will be hoistered. but function expression will not.
+
+What is document.write(): 
+    it rewrite the whole document, suggest never use this method.
+What is Ajax technique:
+    Ajax stands for asynchronous javascript and xml. It is a browser api to make asynchronous http request, and will not cuz the whole page to reload. It use callback mechanism to inform js when the request is done.
+What's difference between "attribute" and "property":
+    A for html, B for DOM. some of them is 1-1 relationship like "id", some are not like "value" means initial value for html but current value for DOM.
+
+DOM  is a tree structure model created by browser and use it to render page. Javascript can only manipulate it.( not created by javascript!!!!!!!)
+
+Use concat to concat Arrays and strings.
+What is “use strict”;? what are the advantages and disadvantages to using it?
+Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
+    Shared global context, may cuz naming collisions and erase data;
+Why would you use something like the load event? Does this event have disadvantages? Do you know any alternatives, and why would you use those? 
+    it firese after the DOM and sources(images,scripts,links) are loaded. alternatives are DOMContentLoad(after DOM ready) is faster(will not wait until images... load)
+Explain what a single page app is and how to make one SEO-friendly
+What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript? —
+    Like typescript more syntactic sugar. cons debugging problems.
+Explain the difference between mutable and immutable objects. What is an example of an immutable object in JavaScript? What are the pros and cons of immutability? How can you achieve immutability in your own code?
+
+总加载时间 = 白屏时间(first paint) + 首屏时间 + 核心功能可用时间 + 页面可交互(DOM Ready).
+javascript符号优先级。
+    new 优先级高于chain.   new A().do() => (new A()).do()

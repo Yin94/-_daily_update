@@ -1,0 +1,25 @@
+只有CSS是case insensitive
+
+Responsive Web Page:
+    首先得在html中加入 viewpoint的这段script
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    可在css中加入media query。 也可在html中dynamically link stylesheet。 (media attribute in link tag)
+Css reset and normalizing(keep some default and change what we need):
+    body:{
+        margin:0
+    }
+    try not to use *{} to reset, it's unefficient
+    normaliz.css: make sure the default value output to be predictable accross browsers.
+Z-index:
+    only work for positioned elements. and child always have higher stack than parent. default=0;
+ways to make things invisible:
+    display:none; visibility:hidden; opacity:0;
+
+Can you give an example of an @media property other than screen?
+
+Whats float, flexbox:
+        Float:will not behave like block, container will collapse. siblings go around it.
+        Flexbox: { display:flex ;flex-flow: wrap  row; justify-content:~~~; align-items:~~~~}  
+            e.g: https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-flow_row_wrap
+            bonuse: we want to centerize a div,  we use flexbox, and justfity and align it both center
+        

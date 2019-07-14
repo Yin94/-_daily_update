@@ -1,0 +1,39 @@
+Http:
+    http is stateless, depends on TCP protocol. Http protocol is human readable
+
+    Steps to a http message:
+	    1. Open a TCP connection
+	    2.Send http message
+	    3. Receive response
+
+    An example HTTP request:
+	    Method, path(url), version, headers, (body).
+    A simple response:
+	    version, status code, status message, headers,(body)
+        Get and Post:
+            get is used to request data, post is to create/update data.
+            Get is length restricted, post not. Get can be cached and stored in history(proxy or local), post can't. Post is safer, cuz as get, data is part of the url and maybe stored in browser history and web logs. Data is not visable as post but can as get.
+React:
+	saga: dispatch action. Use takeEvery to catch it and dispatch an async function and use "put" to dispatch again and reducer will take it.
+
+Git:
+    git checkout, git branch. git ignore. git merge
+
+逻辑比较:
+    若直接出现if 则转换为Boolean.  if ([]) = if(true).  若出现“=="则转换为number 再比较 []==0 => 0==1 => false;
+    NaN!=true and NaN!=false
+
+interesting stuff:
+
+    1.      var m= 1, j = k = 0; 
+    function add(n) { 
+        return n = n+1; 
+　 } 
+    y = add(m); 
+    function add(n) { 
+    } 
+        return n = n + 3; 
+z = add(m); 
+// y=4 , z=4.  cuz hoistering
+
+
