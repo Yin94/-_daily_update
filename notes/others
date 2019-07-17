@@ -1,3 +1,22 @@
+RegExp:
+    Regular expression are patterns used to match string. In js, regexp also is object has methods of test and exec.
+    2 ways to declare a regexp,  var reg = /~/ or reg = new RegExp('~')
+    patterns:
+        /abc/ will match strign if theres a 'abc' in it like 'aaaabc' will be true.
+        "*" means 0-N character /ab*c/  ==>  abbbbc or acc
+        '+' means 1-N times /ab+c/ ==> abc not ac
+        {n} means n times /a{2}/=> aaaaa=>aa
+        {n,} matches at least n time.  /a{2,}/  aaaaaaa=>aaaaaa
+        {n,m} matches n=<x<=m times.
+        '.' matches all characters except for line breaker \n.  '.b'=> ab,bb, cb.... \cb
+        ^ means starts with /^AAb/ will match 'AAbap' but not 'bAAb'
+        $ means ends with /ending$/ => 'the ending'
+        x|y matches x if x not satisfied match y.    a+|b=> *a* or b+
+        [abc] means a charset to match. Or [a-c] [^abc]  matches any character except for abc
+        \d===[0-9]  \D===[^0-9]
+        \s matches backspace
+        \g means global==> 去掉string中所有的空格 "ransado     djaodi".match(/[\S]/g) 或者 /[^s]/g或者 /[A-Z|a-z]/g
+        \w [a-z|A-Z|0-9]
 Http:
     http is stateless, depends on TCP protocol. Http protocol is human readable
 

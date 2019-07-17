@@ -69,3 +69,22 @@ Explain the difference between mutable and immutable objects. What is an example
 总加载时间 = 白屏时间(first paint) + 首屏时间 + 核心功能可用时间 + 页面可交互(DOM Ready).
 javascript符号优先级。
     new 优先级高于chain.   new A().do() => (new A()).do()
+
+
+var a=b=c=3; 从右往左如果b,c 在scope chain里已经声明则直接复制，如果没有则声明再复制
+    var a=b=c=3 ===>
+                    var c=3 //no c in scope
+                    b=3// b in scope
+                    var a=3 // a in scope
+
+
+DNS是什么
+
+
+null与undefined 与其他类型比较时不类型转换，所以永远为false。 但undefined==null -> true, Nan==Nan --> false
+比较符==, 将两头转化为数字然后比较。 Number("")===0
+
+ES6 中的基本数据类型是：
+Number、String、Null、Undefined、Symbol、Boolean
+    但 typeof null 输出是object 这是历史bug
+    typeof Symbol() -> symbol, typeof Function-> function typeof array -> object

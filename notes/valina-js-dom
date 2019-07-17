@@ -1,0 +1,19 @@
+document.querySelector和jquery区别是他只会return一个匹配的
+要想满足返回list则用 querySelectorAll
+
+~:nth-child(even/odd/an+b/2)
+
+
+尽量用element 不要用node： 比如 element.previousElementSibling
+
+append 可以是string appendchild必须是node object。 他们都是在lastchildren后添加一个。
+
+use addEventListener.
+
+e.altKey=> check if altKey was holddown
+
+
+document.creatTextNode.
+
+
+form.addEventListener('submit')
