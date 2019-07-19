@@ -1,0 +1,25 @@
+.vue file is a component file
+    <template>
+    <script>
+    <style>
+
+vue proptype??
+
+
+communications:
+    child->parent: event
+    parent->child: props change
+    others: traverse (using props and event), or more efficiently event bus(like service)
+
+
+dynamic component. kinda like router.
+
+cusomized directive?
+
+add stylesheet to vue?
+
+Route?
+
+props immuatble?
+
+ all the $ variables
