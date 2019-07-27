@@ -2,7 +2,9 @@
 
 Responsive Web Page:
     首先得在html中加入 viewpoint的这段script
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+        不这样加, browser就会整体缩放真个页面.
+
     可在css中加入media query。 也可在html中dynamically link stylesheet。 (media attribute in link tag)
 Css reset and normalizing(keep some default and change what we need):
     body:{
@@ -13,9 +15,9 @@ Css reset and normalizing(keep some default and change what we need):
 Z-index:
     only work for positioned elements. and child always have higher stack than parent. default=0;
 ways to make things invisible:
-    display:none; visibility:hidden; opacity:0;
+    display:none(不显示); visibility:hidden(任然保留flow 位置); opacity:0(保留);
 
-Can you give an example of an @media property other than screen?
+Can you give an example of an @media property other than screen? print
 
 Whats float, flexbox:
         Float:will not behave like block, container will collapse. siblings go around it.
@@ -23,3 +25,36 @@ Whats float, flexbox:
             e.g: https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_flex-flow_row_wrap
             bonuse: we want to centerize a div,  we use flexbox, and justfity and align it both center
         
+
+
+Responsive:
+    What made responsive website possible?
+        1. html5 meta viewport tag,  to allow programer to control the width of the document. we set the width=device.width. initial-scale=1.0.
+            如果没有meta name=viewport tag, browser会自动缩放整个网页, makes it hard to read contents.
+            记住永远不要add static width 给容器(div) 他会影响他内部的字体大小. 也要尽量避免static width 给所有element.
+        2.media query.
+
+
+
+
+    Use relative width for web design to make it viable for all resolution devices.
+
+    Relative length:
+        em means relative size to current font-size(fontsize can be inherited, so font-size:0.5em means %50 of its parents' fontsize)
+        rem: relative width of the root element;
+        vw,vh: viewport
+        %: to parent
+
+    Absolute length:
+        cm,mm,in(inch),px(1px=1/96 of 1in),pt,pc
+
+    Media queries:
+        common break points:
+            320px(xs), 480(sm), 768(md), 1024(lg), 1224(xl)
+        css: 
+            @media only screen and (max-width:800px) and (min-width:400px){} 
+        html:
+            也可以用这个模板来套
+            <link href="mobile.css" rel="stylesheet" media="screen and (max-width: 600px)">
+            
+    Respons image:

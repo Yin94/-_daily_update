@@ -13,7 +13,7 @@ use addEventListener.
 e.altKey=> check if altKey was holddown
 
 
-document.creatTextNode.
+document.creatTextNode. document.createElement
 
 
 form.addEventListener('submit')

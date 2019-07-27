@@ -50,8 +50,8 @@ interesting stuff:
 　 } 
     y = add(m); 
     function add(n) { 
-    } 
         return n = n + 3; 
+    } 
 z = add(m); 
 // y=4 , z=4.  cuz hoistering
 

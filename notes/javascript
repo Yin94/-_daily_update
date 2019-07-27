@@ -14,7 +14,7 @@ How to deep copy a object:
 Date 对象：
     Date 里有一个Number对象里存的与01/01/1970的时间差。
     new Date()// nowc
-    new Date('month date, year hh/mm/ss')
+    new Date('month date year hh/mm/ss')
 垃圾回收机制:
     1.全局变量不会被回收。
     2.局部变量会被回收，也就是函数一旦运行完以后，函数内部的东西都会被销毁。
@@ -22,23 +22,23 @@ Date 对象：
 Deference between function and ()=>{}:
     arrowF does not have keyword this. regular has this(retains to its enclosing lexical context).
         e.g:   function a (){ return ()=>this}    this refer to this of "a"
-    arrow doesn't have "arguments" property.
-    arraow function cant act like constructor, can't use "new" before it.
+    arrow doesn't have "arguments" property. arguments.length 获取长度.
+    arrow function cant act like constructor, can't use "new" before it.
 
 Event mechanism:
     An event is something happens to html element(DOM):
-        event delegation:
+        event delegation(事件委托):
             all children will listen to parents eventlistenner. But the target will be the element actually emmit that event, if we click p in a body, it will be p instead of body.
         event bubbling(event propagation):
             once a event triggered, it will trigger all same eventlistenner on all the element's ancestors. Basically 
 how to iterate through object:
-    for (var key in obj){} or array = Object.keys()
+    for (var key in obj){}, this approach self will traverse __proto__'s att, add if (hasOwnProperty) to correct it or array = Object.keys()
 
 sort, splice,pop等会改变原数组。  concat, join, split 等不会。
 "This" in JS:
     this in function is the caller of this functions at runtime, arrow function is the this of the  lexical enclosing scope.
     this is determined by how a function is called(who is the caller), es6 arrwo function don't have this, it retains this to its enclosing lexical context(declaration phase).
-        for example: function a(){ var b= ()=>this; return b;} ;  a.call('123)()===>'123'
+        for example: function a(){ var b= ()=>this; return b;} ;  a.call('123')()===>'123'
     To manually bind, use Function.call(), Function.apply(). While ES5 introduced Function.prototype.bind(), it copy text of a function and return a new function with its this perm bind to the given arg. 
         You can still pass bind,call,apply to ()=>{}, but it will be ignored still "this" refer to lexical enclose.
         注意bind method chain 起来永远只有第一个生效。
@@ -55,34 +55,41 @@ What's difference between "attribute" and "property":
 
 DOM  is a tree structure model created by browser and use it to render page. Javascript can only manipulate it.( not created by javascript!!!!!!!)
 
-Use concat to concat Arrays and strings.
+Use concat to concat Arrays and strings. concat will not immute original one
+splice,push,pop,sort会改变
+split('')!=split() 前者每个元素拆分,后者直接转化为string.
+join('')!=join() 前者以""与元素结合, 后者输出数组里的所有元素以逗号分开
 What is “use strict”;? what are the advantages and disadvantages to using it?
-Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
-    Shared global context, may cuz naming collisions and erase data;
+    提高一些engine 效率.  额外制定一些error报错,之前会沉默的.
+Why is it, in general, a good idea to leave the global scope of a website as-it-is and never touch it?
+    Shared global context, may cuz naming collisions and erase data; Especially in corperated project, change in home functionality may affect signin.
 Why would you use something like the load event? Does this event have disadvantages? Do you know any alternatives, and why would you use those? 
     it firese after the DOM and sources(images,scripts,links) are loaded. alternatives are DOMContentLoad(after DOM ready) is faster(will not wait until images... load)
 Explain what a single page app is and how to make one SEO-friendly
 What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript? —
-    Like typescript more syntactic sugar. cons debugging problems.
+    Like typescript more syntactic sugar. cons debugging problems, more steps.
 Explain the difference between mutable and immutable objects. What is an example of an immutable object in JavaScript? What are the pros and cons of immutability? How can you achieve immutability in your own code?
-
+    'string' is immutable, primitives are immutable. To achieve immutability, return a newObj instead of mutate it.
 总加载时间 = 白屏时间(first paint) + 首屏时间 + 核心功能可用时间 + 页面可交互(DOM Ready).
+
+critical render path: the series of events need to happen before the first view of webpage
+    html load(DOM)+ css(CSSOM) +javascript(render blocking,block the process) loaded => render tree =>layout loaded=> render, listen to any changes in DOM then rerender.
 javascript符号优先级。
     new 优先级高于chain.   new A().do() => (new A()).do()
 
 
 var a=b=c=3; 从右往左如果b,c 在scope chain里已经声明则直接复制，如果没有则声明再复制
-    var a=b=c=3 ===>
+    var a=b=c=3 ===> 
                     var c=3 //no c in scope
                     b=3// b in scope
-                    var a=3 // a in scope
+                    var a=3 // no matter if a in scope or not always declare a new 'a'
 
 
 DNS是什么
 
 
 null与undefined 与其他类型比较时不类型转换，所以永远为false。 但undefined==null -> true, Nan==Nan --> false
-比较符==, 将两头转化为数字然后比较。 Number("")===0
+其余数据类型比较符==, 将两头转化为数字然后比较。 Number("")===0, Number("0")===false, Number('asdasd')==NaN so 'asdas'==true=> false, 'adsasd'==false=>false,but  if ('asdasd') will be true
 
 ES6 中的基本数据类型是：
 Number、String、Null、Undefined、Symbol、Boolean

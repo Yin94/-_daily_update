@@ -1,0 +1,10 @@
+The measure of how fast the page load is the time it need to load the initial view(before the scroll)
+    The main idea is to remove or reduce calls in critical render path that are not needed for the initial view.(above the fold content shr)
+Only three ways to optimize the critical render path:
+
+    1.Minimize the number of critical resources. => Less files=> less traffic.(http protocol file number limit)
+    2.Minimize the number of critical bytes.=> Less download and load time. (including image size)
+    3.Minimize the critical path length. => less steps for first seen view
+        Javascript: only first view js load, else defer
+        Css: same. get rid of unneeded css and use inline style
+        images: same, load only needed for 1st view, else defer. Plus responsive image.
